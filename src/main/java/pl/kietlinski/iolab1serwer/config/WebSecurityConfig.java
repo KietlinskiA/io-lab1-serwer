@@ -11,6 +11,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/api").authenticated();
+        http.httpBasic();
+        http.authorizeRequests()
+                .antMatchers("/", "/motto", "/quiz", "/checkAnswers")
+                .authenticated();
     }
 }

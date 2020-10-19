@@ -1,6 +1,7 @@
 package pl.kietlinski.iolab1serwer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 import pl.kietlinski.iolab1serwer.entity.Motto;
 import pl.kietlinski.iolab1serwer.repository.MottoRepository;
@@ -23,9 +24,8 @@ public class MottoService {
         initMottoList();
     }
 
-    public void initMottoRepository() {
+    private void initMottoRepository() {
         mottoRepository.deleteAll();
-        mottoRepository.save(new Motto("Jeśli kiedykolwiek zamierzasz cieszyć się życiem - teraz jest na to czas - nie jutro, nie za rok. Dzisiaj powinno być zawsze najwspanialszym dniem.", "Thomas Dreier"));
         mottoRepository.save(new Motto("Szczęście nie przychodzi z zewnątrz. Zależy od tego, co jest w nas samych.", "Dale Carnegie"));
         mottoRepository.save(new Motto("Gdy zmieniamy nasze myślenie, zmieniamy naszą rzeczywistość.", "Louise L. Hay"));
         mottoRepository.save(new Motto("Nasze życie zawsze pokazuje rezultat naszych dominujących myśli.", "Soren Kierkegaard"));
@@ -35,7 +35,7 @@ public class MottoService {
         mottoRepository.save(new Motto("By zyskać miłość… wypełnij się nią, aż staniesz się magnesem.", "Rhonda Byrne"));
     }
 
-    public void initMottoList() {
+    private void initMottoList() {
         mottoList = mottoRepository.findAll();
     }
 
