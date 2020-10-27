@@ -24,7 +24,7 @@ public class QuizServiceImpl implements QuizService {
         initQuestionList();
         this.chosenQuestionList = new ArrayList<>();
     }
-
+    
     private void initQuizRepository() {
         quizRepository.deleteAll();
         quizRepository.save(new Question(
